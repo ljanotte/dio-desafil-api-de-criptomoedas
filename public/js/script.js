@@ -1,70 +1,41 @@
-const cards = document.querySelectorAll('.card');
-let hasFlippedCard = false;
-let firstCard, secondCard;
-let lockBoard = false;
-
-//função para virar carta
-function flipCard() {
-    if(lockBoard) return;
-    if(this === firstCard) return;
-
-    this.classList.add('flip');
-    if(!hasFlippedCard) {
-        hasFlippedCard = true;
-        firstCard = this;
-        return;
-    }
-
-    secondCard = this;
-    hasFlippedCard = false;
-    checkForMatch();
+//My api key
+var apikey = {
+    key: 'SUA API KEY AQUI:)'
 }
 
-//função que checa se as cartas são iguais
-function checkForMatch() {
-    if(firstCard.dataset.card === secondCard.dataset.card) {
-        disableCards();
-        return;
-    }
-
-    unflipCards();
-}
-
-//função que desabilita as cartas
-function disableCards() {
-    firstCard.removeEventListener('click', flipCard);
-    secondCard.removeEventListener('click', flipCard);
-
-    resetBoard();
-}
-
-//funcão que desvira as cartas
-function unflipCards() {
-    lockBoard = true;
-
-    setTimeout(() => {
-        firstCard.classList.remove('flip');
-        secondCard.classList.remove('flip');
-
-        resetBoard();
-    }, 1500);
-}
-
-//função que reseta o tabuleiro
-function resetBoard() {
-    [hasFlippedCard, lockBoard] = [false, false];
-    [firstCard, secondCard] = [null, null];
-}
-
-//função que embaralha as cartas
-(function shuffle() {
-    cards.forEach((card) => {
-        let ramdomPosition = Math.floor(Math.random() * 12);
-        card.style.order = ramdomPosition;
+//GET Fetch Requisition
+fetch('https://pro-api.coinmarketcap.com/v1/cryptocurrency/map?CMC_PRO_API_KEY=' +
+    apikey.key)
+    .then((response) => {
+        if (!response.ok) throw new Error('Erro ao executar a requisição, status ' + response.status);
+        return response.json();
     })
-})();
+    .then((api) => {
 
-//adiciona evento de clique na carta
-cards.forEach((card) => {
-    card.addEventListener('click', flipCard)
-});
+        var texto = "";
+        // Get 10 coins and symbols 
+        for (let i = 0; i < 10; i++) {
+
+
+
+            //Show API information
+
+            texto = texto + `
+
+<div class="media">
+<img src="coin.jpg" class="align-self-center mr-3" alt="coin" width="100" height="60">
+<div class="media-body">
+<h5 class="mt-2">${api.data[i].name}</h5>
+<p>${api.data[i].symbol}</p>
+</div>
+</div>
+
+`;
+
+            document.getElementById("coins").innerHTML = texto;
+
+        }
+    })
+    .catch((error) => {
+        console.error(error.message);
+    });

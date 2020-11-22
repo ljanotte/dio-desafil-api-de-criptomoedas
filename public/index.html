@@ -1,65 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Jogo da memória</title>
-</head>
-<body>
-    
-    <main class="memory-game">
-        <div class="card" data-card="bowser">
-            <img class="card-front" src="img/bowser.jpg" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="luigi">
-            <img class="card-front" src="img/luigi.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="mario">
-            <img class="card-front" src="img/mario.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="peach">
-            <img class="card-front" src="img/peach.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="toad">
-            <img class="card-front" src="img/toad.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="yoshi">
-            <img class="card-front" src="img/yoshi.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="bowser">
-            <img class="card-front" src="img/bowser.jpg" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="luigi">
-            <img class="card-front" src="img/luigi.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="mario">
-            <img class="card-front" src="img/mario.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="peach">
-            <img class="card-front" src="img/peach.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="toad">
-            <img class="card-front" src="img/toad.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-        <div class="card" data-card="yoshi">
-            <img class="card-front" src="img/yoshi.png" alt="Face da carta">
-            <img class="card-back" src="img/box.png" alt="Verso da carta">
-        </div>
-    </main>
-
-    <script defer src="js/script.js"></script>
-</body>
+<html>
+    <head>
+        <title>CoinMarketCap</title>
+        <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <meta charset="utf-8">       
+    </head>
+    <body>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" aria-current="page">Coin Market Cap</li>
+            </ol>
+          </nav>
+        
+          <div class="d-flex p-3 bd-highlight">
+            <div id='coins'></div>
+          </div>          
+    </body>
 </html>
